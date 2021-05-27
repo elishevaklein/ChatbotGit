@@ -22,8 +22,17 @@ class ActionProvider {
         );
 
         this.addMessageToBotState(messages);
+        const obj = {
+            logDate: Date.now(),
+            userName: "laline",
+            appName: "ChatBot",
+            action: "botMessege",
+            details: "success",
+            contentObject: message
+        }
+        this.createLog(obj)
     };
-    
+
     handleDefault = () => {
         const message = this.createChatBotMessage(
             "How can I help?", {
@@ -34,7 +43,34 @@ class ActionProvider {
         this.addMessageToBotState(message)
     };
 
-   
+    createLog = async ({ object }) => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Cookie", "cf_ob_info=502:655d64c5eec8bee2:FRA; cf_use_ob=443");
+
+        var raw = {
+            logDate: "2021-02-10T09:08:57.602Z",
+            userName: "haida",
+            appName: "chatbot",
+            action: "end the task",
+            details: "send mail",
+            contentObject: {
+                "name": "oshra",
+                "work": "YES"
+            }
+        };
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: JSON.stringify( raw),
+            redirect: 'follow',
+            mode: 'cors'
+        };
+        let data = await fetch("https://activity-log.leader.codes/createNewLog", requestOptions)
+    }
+
+
     addMessageToBotState = (messages) => {
         if (Array.isArray(messages)) {
             this.setState((state) => ({
@@ -49,5 +85,6 @@ class ActionProvider {
         }
     };
 }
+
 
 export default ActionProvider;
