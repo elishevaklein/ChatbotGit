@@ -1,0 +1,16 @@
+name- Chatbot
+users-
+name: elisheva_klein
+password: c
+ 
+name: Sheindy_Hirshman
+password:0527676709
+
+link-mongodb+srv://elisheva_klein:0583208019elisheva@cluster0.bzl2x.mongodb.net/Chatbot?retryWrites=true&w=majority
+
+
+
+התאבדות היא פיתרון ניצחי לבעייה זמנית
+מרגישה שהשיר הזה נכתב על דור שלם של רווקות שחיות בציפייה עמוקה, בכמיהה אינסופית לאיש שלהן... 
+בבדידות כמעט שקופה ובלתי מורגשת שמנסים למלא בכל דבר טוב שרק אפשר. אבל היא תמיד שם. 
+חברה צמודה של הייאוש... יד ביד, הולכים מכות בתוך הלב שלי עם האמונה התמימה הזאת... שבוודאי ישנו שם...:(

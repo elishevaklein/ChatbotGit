@@ -1,0 +1,22 @@
+.options {
+    padding-bottom: 15px;
+  }
+  
+  .options-header {
+    font-size: 1.0rem;
+    font-weight: normal;
+  }
+  
+  .options-container {
+    display: center;
+    flex-wrap: wrap-reverse;
+  }
+  
+  .option-item {
+    padding: 5px 10px;
+    border: 1px solid #2898ec;
+    border-radius: 25px;
+    color: #2899ec;
+    font-size: 0.9rem;
+    margin: 5px;
+  }

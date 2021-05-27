@@ -1,0 +1,10 @@
+init
+express
+mongoose
+socket.io
+claudia-bot-builder
+body-parser --save
+request
+jsonwebtoken
+dotenv
+http
