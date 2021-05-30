@@ -60,10 +60,21 @@ class ActionProvider {
             }
         };
 
+        let rawb={
+            logDate: object.logDate,
+            userName: object.userName,
+            appName: object.appName,
+            action: object.action,
+            details: object.details,
+            contentObject: {
+                // object.contentObject.message
+            }
+        }
+
         var requestOptions = {
             method: 'POST',
             headers: myHeaders,
-            body: JSON.stringify( raw),
+            body: JSON.stringify( rawb),
             redirect: 'follow',
             mode: 'cors'
         };
