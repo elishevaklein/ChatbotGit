@@ -41,35 +41,38 @@ class ActionProvider {
         });
 
         this.addMessageToBotState(message)
+        const obj = {
+            logDate: Date.now(),
+            userName: "laline",
+            appName: "ChatBot",
+            action: "DefaultbotMessege",
+            details: "success",
+            contentObject: message
+        }
+        this.createLog(obj)
     };
 
-    createLog = async ({ object }) => {
+    createLog = async (object ) => {
         var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        myHeaders.append("Cookie", "cf_ob_info=502:655d64c5eec8bee2:FRA; cf_use_ob=443");
+        myHeaders.append("Content-Type", "application/json");      
 
-        var raw = {
-            logDate: "2021-02-10T09:08:57.602Z",
-            userName: "haida",
-            appName: "chatbot",
-            action: "end the task",
-            details: "send mail",
-            contentObject: {
-                "name": "oshra",
-                "work": "YES"
-            }
-        };
-
+        let raw = {
+            logDate: object.logDate,
+            userName: object.userName,
+            appName: object.appName,
+            action: object.action,
+            details: object.details,
+            contentObject:object.contentObject        
+        }
         var requestOptions = {
             method: 'POST',
             headers: myHeaders,
-            body: JSON.stringify( raw),
+            body: JSON.stringify(raw),
             redirect: 'follow',
             mode: 'cors'
         };
         let data = await fetch("https://activity-log.leader.codes/createNewLog", requestOptions)
     }
-
 
     addMessageToBotState = (messages) => {
         if (Array.isArray(messages)) {
