@@ -60,6 +60,7 @@ class ActionProvider {
             }
         };
 
+<<<<<<< HEAD
         let rawb={
             logDate: object.logDate,
             userName: object.userName,
@@ -75,6 +76,12 @@ class ActionProvider {
             method: 'POST',
             headers: myHeaders,
             body: JSON.stringify( rawb),
+=======
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: JSON.stringify( raw),
+>>>>>>> parent of e5ee19b (Update ActionProvider.js)
             redirect: 'follow',
             mode: 'cors'
         };
