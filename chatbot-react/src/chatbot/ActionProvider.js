@@ -15,7 +15,7 @@ class ActionProvider {
         this.addMessageToBotState(message)
     };
 
-    handleMessageLink = (name, message = "Here you can find details of your choice") => {
+    handleMessageLink = ( name, message = "Here you can find details of your choice") => {
         const messages = this.createChatBotMessage(
             message,
             { widget: name, withAvatar: true, }
@@ -41,53 +41,38 @@ class ActionProvider {
         });
 
         this.addMessageToBotState(message)
+        const obj = {
+            logDate: Date.now(),
+            userName: "laline",
+            appName: "ChatBot",
+            action: "DefaultbotMessege",
+            details: "success",
+            contentObject: message
+        }
+        this.createLog(obj)
     };
 
-    createLog = async ({ object }) => {
+    createLog = async (object) => {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
-        myHeaders.append("Cookie", "cf_ob_info=502:655d64c5eec8bee2:FRA; cf_use_ob=443");
 
-        var raw = {
-            logDate: "2021-02-10T09:08:57.602Z",
-            userName: "haida",
-            appName: "chatbot",
-            action: "end the task",
-            details: "send mail",
-            contentObject: {
-                "name": "oshra",
-                "work": "YES"
-            }
-        };
-
-<<<<<<< HEAD
-        let rawb={
+        let raw = {
             logDate: object.logDate,
             userName: object.userName,
             appName: object.appName,
             action: object.action,
             details: object.details,
-            contentObject: {
-                // object.contentObject.message
-            }
+            contentObject: object.contentObject
         }
-
         var requestOptions = {
             method: 'POST',
             headers: myHeaders,
-            body: JSON.stringify( rawb),
-=======
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: JSON.stringify( raw),
->>>>>>> parent of e5ee19b (Update ActionProvider.js)
+            body: JSON.stringify(raw),
             redirect: 'follow',
             mode: 'cors'
         };
         let data = await fetch("https://activity-log.leader.codes/createNewLog", requestOptions)
     }
-
 
     addMessageToBotState = (messages) => {
         if (Array.isArray(messages)) {
